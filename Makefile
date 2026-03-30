@@ -1,2 +1,2 @@
 run:
-	uv run python main.py
+	python -m src.main

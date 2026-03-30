@@ -13,6 +13,8 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=PROJECT_ENV)
 
     google_service_account_path: str
+    google_sheet_sab_widget_management_id: str
+    google_sheet_sab_widget_management_widget_links_sheet_name: str
     backoffice_env_file: str
 
 
@@ -21,8 +23,8 @@ class BackofficeCredentials(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=Settings().backoffice_env_file)  # type: ignore[call-arg]
 
-    backoffice_login: str
-    backoffice_password: str
+    ubo_login: str
+    ubo_password: str
 
 
 settings = Settings()  # type: ignore[call-arg]

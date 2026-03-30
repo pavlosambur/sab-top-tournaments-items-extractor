@@ -1,5 +1,8 @@
 # Selenium
 
+## Browser
+- Use Firefox (webdriver.Firefox) — never Chrome
+
 ## State verification
 - After every action (click, form submit, navigation) — always verify the expected state change
 - Never assume an action succeeded — check for element appearance/disappearance or attribute change
