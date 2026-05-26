@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from loguru import logger
 
+from config.google_sheets import COLUMN_ITEM_URL
 from config.selenium import (
     ITEM_NAME_XPATH,
     ITEM_PAGE_LOADED_XPATH,
@@ -54,7 +55,7 @@ def _extract_item_data(browser: WebDriver, url: str) -> dict[str, str]:
         raise RuntimeError(f"Missing required fields on {url}: item_name={item_name}, web_link={web_link}, status={status}")
 
     logger.info("Extracted item: {name}, brand: {brand}, status: {status}", name=item_name, brand=brand_id, status=status)
-    return {"brand_id": brand_id, "item_name": item_name, "web_link": web_link, "status": status, "url": url}
+    return {"brand_id": brand_id, "item_name": item_name, "web_link": web_link, "status": status, COLUMN_ITEM_URL: url}
 
 
 def _extract_brand_id(url: str) -> str:
